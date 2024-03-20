@@ -10,7 +10,9 @@ int j=0;
 int k=0;
 while(i<2 || j<5)
 {
-    if (arr1[i]<arr2[j])
+if   (i<2 && j<5)
+{
+if (arr1[i]<arr2[j])
     {
     arr3[k]=arr1[i];
     i++;
@@ -22,6 +24,18 @@ while(i<2 || j<5)
          j++;
          k++;
     }
+}
+else if(j<5)
+{
+arr3[k]=arr2[j];
+         j++;
+         k++;
+}
+else
+{
+arr3[k]=arr1[i];
+    i++;
+    k++;
 }
 for (int i=0;i<sizeof(arr3)/sizeof(arr3[0]);i++)
 {
