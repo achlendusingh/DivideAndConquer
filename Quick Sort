@@ -1,0 +1,56 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int partition(int *arr,int s,int e)
+{
+    int pivotIndex=s;
+    int pivotElement=arr[s];
+    int count=0;
+    for(int i=s+1;i<=e;i++)
+    {
+        if(arr[i]<=pivotElement)
+        {
+            count++;
+        }
+    }
+    swap(arr[pivotIndex],arr[s+count]);
+    pivotIndex=s+count;
+    int i=s;
+    int j=e;
+    while(i<pivotIndex && j>pivotIndex)
+    {
+        while(arr[i]<pivotElement)
+        {
+            i++;
+        }
+        while(arr[j]>pivotElement)
+        {
+            j--;
+        }
+        if(i<pivotIndex && j>pivotIndex)
+        swap(arr[i],arr[j]);
+        
+    }
+    return pivotIndex;
+}
+
+void quickSort(int *arr,int s,int e)
+{
+     if(s<=e)
+     {
+         return;
+     }
+     int pivot=partition(arr,s,e);
+     quickSort(arr,s,pivot-1);
+     quickSort(arr,pivot+1,e);
+}
+int main() {
+   int arr[]={23,32,54,34,31};
+   quickSort(arr,0,4);
+   for(int i=0;i<5;i++)
+   {
+       cout<<arr[i]<<" ";
+   }
+
+    return 0;
+}
