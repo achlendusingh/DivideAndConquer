@@ -38,6 +38,7 @@ void merge(int *arr,int s,int e)
                rightIndex++;
         }
     }
+// or we can implement the below code in the above while bu using OR
     while(leftIndex<len1)
     {
         arr[mainIndex]=left[leftIndex];
