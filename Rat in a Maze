@@ -22,7 +22,13 @@ void solveMaze(int arr[3][3],int row,int srcx,int srcy, vector<vector<bool> &vis
         //backtrack
         visited[i][j-1];
     }
-    
+// right
+  if(isSafe(i,j+1,row,col,arr,visited)){
+        visited[i][j+1]=true;
+        solveMaze(arr,row,col,i,j+1,visited,path,output+'R');
+        //backtrack
+        visited[i][j+1];
+    }    
 }
 int main() {
     // Write C++ code here
